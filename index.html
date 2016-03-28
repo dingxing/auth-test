@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>111111111111</title>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="auth_client.js"></script>
+
+</head>
+<body ng-app="myApp">
+<div ng-controller="userCtrl">
+    <span ng-show="isAuthenticated">{{welcome}}</span>
+
+    <form ng-show="!isAuthenticated" ng-submit="submit()">
+        <input type="text" name="user" placeholder="用户名" ng-model="user.username">
+        <input type="password" name="password" placeholder="密码" ng-model="user.password">
+        <input type="submit" value="submit">
+    </form>
+    <div>{{error}}</div>
+    <div ng-show="isAuthenticated">
+        <a ng-click="callRestricted()" href="">Shh, this is private!</a>
+        <br>
+        <div>{{message}}</div>
+        <a ng-click="logout()" href="">Logout</a>
+    </div>
+</div>
+</body>
+</html>
